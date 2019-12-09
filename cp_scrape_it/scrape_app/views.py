@@ -14,10 +14,13 @@ def home(request):
 
 def new_search(request):
     search = request.POST.get('search')
-    print(quote_plus(search))
+    models.Search.objects.create(search=search)
     final_url =  BASE_CRAIGSLIST_URL.format(quote_plus(search))
-    response = requests.get('https://newyork.craigslist.org/search/bbb?query=python&sort=rel')
+    response = requests.get(final_url)
     data = response.text
+    soup = BeautifulSoup(data, features='html.parser')
+    post_titles = soup.find_all('a', {'class': 'result-title'})
+    print(post_titles)
     stuff_for_frontend = {
         'search' : search,
     }
