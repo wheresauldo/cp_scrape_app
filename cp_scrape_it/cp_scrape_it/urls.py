@@ -13,16 +13,11 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin # admin import not working with scrape_app.urls
-
+from django.contrib import admin
 from django.urls import path, include
-
-from scrape_app import views # cannot import admin from scrape_app
-
+from scrape_app import views
 
 urlpatterns = [
+    path('', include('scrape_app.urls')),
     path('admin/', admin.site.urls),
-    path('', views.home, name='home'),
-    path('scrape_app/new_search', views.new_search, name= 'new_search'),
-#    path('', include('scrape_app.urls')), # causing admin error
 ]

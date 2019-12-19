@@ -1,8 +1,12 @@
 from django.urls import path
+
 from . import views
 
+from . import templates
+
+app_name = 'scrape_app'
+
 urlpatterns = [
-    path('',views.home, name= 'home'),
-    path('admin/', admin,site.urls),
+    path('', views.home, name='home'),
     path('new_search', views.new_search, name='new_search'),
 ]
