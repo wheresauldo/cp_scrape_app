@@ -4,30 +4,5 @@
 
 <h2 style= "text-align: center"> {{ search| title }} </h2>
 
-<div class="row">
-
-  {% for post in final_postings %}
-
-  <div class="col s12 m7">
-    <div class="card">
-      <div class="card-image">
-          <a href="{{ post.1 }}"</a>
-        <img src="https://cdn.shopify.com/s/files/1/2572/4176/products/08191-Jelly-Beans-Asst_2000x.jpg?v=1520217748">
-
-      <span class="card-title">{{ post.0 }}</span>
-
-      <div class="card-content">
-        <a href="{{ post.1 }}"> View Listing Price {{ post.2 }} </a>
-      </div>
-      </div>
-    </div>
-  </div>
-
-
-
-  {% endfor %}
-
-</div>
-
 
 {% endblock content %}

@@ -1,9 +1,12 @@
 from django.urls import path
+
 from . import views
-from django.contrib import admin
+
+from . import templates
+
+app_name = 'scrape_app'
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('',views.home, name= 'home'),
+    path('', views.home, name='home'),
     path('new_search', views.new_search, name='new_search'),
 ]
